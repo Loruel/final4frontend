@@ -1,13 +1,16 @@
 import axios from "axios";
 
-export const createIncident = async ({ title, type, description, userId }) => {
-    const res = await axios.post('http://localhost:3000/api/incidents/create', {
-        title,
-        type,
-        description,
-        userId
-    })
-    return res.data
+export const createIncident = async (/* { token, userData } */userData) => {
+    try {
+        const res = await axios.post('http://localhost:3000/api/incidents/create', userData/* , {
+            headers: { Authorization: token }
+        } */)
+
+        return res.data
+    } catch (error) {
+        console.error('Error en createIncident:', error.response ? error.response.data : error.message);
+        throw error;
+    }
 }
 
 export const allIncidents = async () => {

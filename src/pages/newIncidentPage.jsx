@@ -6,14 +6,29 @@ export default function NewIncidentPage() {
 
     const handleCreateIncident = async e => {
         e.preventDefault()
-        const data = {
-            title: e.target.title.value,
-            type: e.target.type.value,
-            description: e.target.description.value,
-        }
-        await createIncidentMutation.mutate(data)
-    }
+       /*  const token = localStorage.getItem('authToken') */
 
+        const title = e.target.title.value.trim();
+        const type = e.target.type.value.trim();
+        const description = e.target.description.value.trim()
+
+        if (!title || !type || !description) {
+            alert("Todos los campos son obligatorios.")
+            return;
+        }
+
+        const userData = {
+            title,
+            type,
+            description,
+        }
+
+        /* console.log('Token:', token);
+        console.log('User Data:', userData); */
+
+        await createIncidentMutation.mutate(/* { token, userData } */ userData )
+    }
+ 
     return (
         <div>
 
