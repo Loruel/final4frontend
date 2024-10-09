@@ -66,10 +66,27 @@ export default function NewIncidentPage() {
                             className='border border-gray-300 w-full h-8 rounded-md focus:outline-none bg-white '>
 
                             <option value="">Select an option</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                            <option value="option4">Option 4</option>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Painting">Painting</option>
+                            <option value="Gardening">Gardening</option>
+                            <option value="Elevators">Elevators</option>
+                            <option value="Security">Security</option>
+                            <option value="Cleaning">Cleaning</option>
+                            <option value="Heating">Heating</option>
+                            <option value="Air conditioning">Air conditioning</option>
+                            <option value="Gas">Gas</option>
+                            <option value="Surveillance cameras">Surveillance cameras</option>
+                            <option value="Automatic doors">Automatic doors</option>
+                            <option value="Exterior lighting">Exterior lighting</option>
+                            <option value="Swimming pool">Swimming pool</option>
+                            <option value="Irrigation systems">Irrigation systems</option>
+                            <option value="Electrical network">Electrical network</option>
+                            <option value="Fire protection system">Fire protection system</option>
+                            <option value="Public lighting">Public lighting</option>
+                            <option value="Common area maintenance">Common area maintenance</option>
+                            <option value="Roof repairs">Roof repairs</option>
+                            <option value="Waste management">Waste management</option>
+                            <option value="Others">Others</option>
 
                         </select>
                     </label>

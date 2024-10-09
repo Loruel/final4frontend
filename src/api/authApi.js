@@ -24,3 +24,10 @@ export const allUsers = async () => {
     const res = await axios.get('http://localhost:3000/api/auth/users')
     return res.data
 }
+
+export const getMyInformation = async token => {
+    const res = await axios.get('http://localhost:3000/api/auth/me', {
+        headers: {Authorization: token}
+    })
+    return res.data
+}
