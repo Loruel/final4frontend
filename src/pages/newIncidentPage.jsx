@@ -6,7 +6,7 @@ export default function NewIncidentPage() {
 
     const handleCreateIncident = async e => {
         e.preventDefault()
-       /*  const token = localStorage.getItem('authToken') */
+        /*  const token = localStorage.getItem('authToken') */
 
         const title = e.target.title.value.trim();
         const type = e.target.type.value.trim();
@@ -26,9 +26,9 @@ export default function NewIncidentPage() {
         /* console.log('Token:', token);
         console.log('User Data:', userData); */
 
-        await createIncidentMutation.mutate(/* { token, userData } */ userData )
+        await createIncidentMutation.mutate(/* { token, userData } */ userData)
     }
- 
+
     return (
         <div>
 
@@ -95,9 +95,10 @@ export default function NewIncidentPage() {
                         <p className='text-white mb-1 mt-3'>
                             Description
                         </p>
-                        <input
+                        <textarea
                             className='border border-gray-300 w-full h-32 p-2 rounded-md focus:outline-none'
-                            type="text" name='description' id='description' />
+                            type="text" name='description' id='description'>
+                        </textarea>
                     </label>
 
                     <label className='' htmlFor="">

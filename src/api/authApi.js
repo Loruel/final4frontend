@@ -27,7 +27,8 @@ export const allUsers = async () => {
 
 export const getMyInformation = async token => {
     const res = await axios.get('http://localhost:3000/api/auth/me', {
-        headers: {Authorization: token}
+        headers: /* {Authorization: token} */
+            { Authorization: `Bearer ${token}` }
     })
     return res.data
 }
