@@ -23,8 +23,16 @@ export const deletIncident = async (id) => {
     return res.data
 }
 
-export const updateIncident = async (id, incidentData) => {
-    const res = await axios.patch(`http://localhost:3000/api/incidents/${id}`, incidentData)
+export const updateIncident = async ({id, status}) => {
+    console.log('status de la api:', status)
+    const res = await axios.patch(`http://localhost:3000/api/incidents/${id}`, {
+        status
+    })
+    return res.data
+}
+
+export const getIncidentById = async (id) => {
+    const res = await axios.get(`http://localhost:3000/api/incidents/${id}`)
     return res.data
 }
 

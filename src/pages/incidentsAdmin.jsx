@@ -1,9 +1,11 @@
 import React from 'react'
 import { useFunction } from '../context/Context'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 export default function IncidentsAdmin() {
     const { incidents } = useFunction()
+    const navigate = useNavigate()
+
 
     return (
         <div>
@@ -35,11 +37,12 @@ export default function IncidentsAdmin() {
                                         </p>
                                     </div>
                                     <div className='p-1 ml-2'>
-                                        <Link to={'/editInsidentAdmin'}>
-                                            <button className=' bg-red-600 rounded-lg w-16 text-white'>
-                                                Edit
-                                            </button>
-                                        </Link>
+
+                                        <button className=' bg-red-600 rounded-lg w-16 text-white'
+                                            onClick={() => navigate(`/incident/${incident.incident_id}`)}>
+                                            Edit
+                                        </button>
+
 
                                     </div>
                                 </div>

@@ -43,13 +43,6 @@ export default function MyIncidents() {
                                     </p>
                                 </div>
                                 <div className='p-1 flex justify-end mr-4 gap-2'>
-                                    <Link to={'/editInsident'}>
-                                        <button
-                                            value={incident.incident_id}
-                                            className='bg-black text-white w-16 h-6 rounded-lg'>
-                                            Edit
-                                        </button>
-                                    </Link>
 
                                     <button
                                         value={incident.incident_id}

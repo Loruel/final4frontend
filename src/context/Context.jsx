@@ -4,7 +4,7 @@ import { useContext } from "react"
 import { createContext } from "react"
 import { login, register } from "../api/authApi"
 import { useNavigate } from "react-router-dom"
-import { createIncident, allIncidents, deletIncident, updateIncident } from "../api/incidentApi"
+import { createIncident, allIncidents, deletIncident, updateIncident, getIncidentById } from "../api/incidentApi"
 import { allUsers } from "../api/authApi"
 
 const functionContext = createContext()
@@ -85,42 +85,20 @@ export function FunctionProvider({ children }) {
         fetchIncidents()
     }, []) //Todas las incidencias
 
-    /*  const fetchIncidentById = async (id) => {
-         try {
-             const data = await getIncidentById(id)
-             setIncident(data)
-         } catch (error) {
-             console.error('Error fetching incident by ID:', error)
-         }
-     } */
-
-
-    /*   const fetchIncidentsByUserId = async (userId) => {
-          try {
-              const response = await getIncidentsByUserId(userId)
-              setIncidents(response.data)
-              console.log(response)
-          } catch (error) {
-              console.error('Error fetching incidents by user ID:', error)
-          }
-      } */
-
-    /*  const IncidentByIdMutation = useContext({
-         mutationKey: ['fetchIncidentById'],
-         mutationFn: fetchIncidentById,
-         onError: error => {
-             alert('Error fetching incidents by user ID:', error)
-         },
-         onSuccess: (data) => {
-             setIncident(data)
-         }
-     }) */
+    const fetchIncidentById = async (id) => {
+        try {
+            const response = await getIncidentById(id)
+            setIncident(response.data)
+        } catch (error) {
+            console.error('Error fetching incident by ID:', error)
+        }
+    }
 
     const createIncidentMutation = useMutation({
         mutationKey: ['createIncident'],
         mutationFn: createIncident,
         onError: error => {
-            alert(error.response.data.message)    
+            alert(error.response.data.message)
         },
         onSuccess: data => {
             alert(data.message);
@@ -146,8 +124,9 @@ export function FunctionProvider({ children }) {
             alert(error.response.data.message)
         },
         onSuccess: data => {
-            alert(data.message)
-            setLocation('myincidents')
+            alert('Incidente actualizado correctamente')
+            setUser(data.incident)
+            setLocation('/incidents')
         }
     }) //La mutacion para editar un incidente
 
@@ -159,8 +138,8 @@ export function FunctionProvider({ children }) {
             createIncidentMutation,
             deleteIncidentMutation,
             updateIncidentMutation,
-            /* fetchIncidentById,
-            IncidentByIdMutation, */
+            fetchIncidentById,
+            /* IncidentByIdMutation, */
             //user
             user,
             users,

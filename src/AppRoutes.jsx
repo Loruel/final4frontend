@@ -33,7 +33,7 @@ export default function AppRoutes() {
                     <Route element={<RoleProtectedRoute allowedRoles={['admin']} />}>
                         <Route path='/users' element={<UsersPage />} />
                         <Route path='/createuser' element={<CreateUser />} />
-                        <Route path='/editInsidentAdmin' element={<EditIncidentAdminPage />} />
+                        <Route path='/incident/:id' element={<EditIncidentAdminPage />} />
                         <Route path='/incidents' element={<IncidentsAdmin />} />
                     </Route>
 
