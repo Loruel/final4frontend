@@ -34,11 +34,11 @@ export default function UsersPage() {
 
                                         </p>
                                     </div>
-                                    <div className='w-1/3 flex justify-end'>
+                                    {/* <div className='w-1/3 flex justify-end'>
                                         <button className='bg-red-600 text-white w-16 h-6 rounded-lg'>
                                             Delete
                                         </button>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className='flex text-xs italic'>
                                     <p className=''>
