@@ -2,11 +2,11 @@ import React from 'react'
 import { useFunction } from '../context/Context'
 
 export default function NewIncidentPage() {
-    const { createIncidentMutation } = useFunction()
+    const { createIncidentMutation, user } = useFunction()
+
 
     const handleCreateIncident = async e => {
         e.preventDefault()
-        /*  const token = localStorage.getItem('authToken') */
 
         const title = e.target.title.value.trim();
         const type = e.target.type.value.trim();
@@ -21,12 +21,10 @@ export default function NewIncidentPage() {
             title,
             type,
             description,
+            userId: user.user_id
         }
 
-        /* console.log('Token:', token);
-        console.log('User Data:', userData); */
-
-        await createIncidentMutation.mutate(/* { token, userData } */ userData)
+        await createIncidentMutation.mutate(userData)
     }
 
     return (
@@ -36,6 +34,7 @@ export default function NewIncidentPage() {
             <div className='flex flex-col items-center'>
 
                 <h1 className='text-2xl font-semibold flex flex-col items-center mt-6'>
+                    {user.user_id}
                     New incident
                 </h1>
 

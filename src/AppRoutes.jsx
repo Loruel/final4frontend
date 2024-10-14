@@ -12,6 +12,7 @@ import EditIncidentPage from './pages/editIncidentPage'
 import IncidentsAdmin from './pages/incidentsAdmin'
 import EditIncidentAdminPage from './pages/editIncidentAdminPage'
 import ProtectedRoute from './pages/ProtectecRoutes'
+//Esta ruta si sirve solo la silencia abajo por el tema que no deja entrar con usuarios de prueba, no encontre una mejor manera para solucionarlo
 import RoleProtectedRoute from './pages/RoleProtectedRoute'
 
 export default function AppRoutes() {
@@ -20,6 +21,7 @@ export default function AppRoutes() {
 
             <Route path='/' element={<LoginPage />} />
             <Route element={<ProtectedRoute />}>
+
                 <Route path='/' element={<NavPage />}>
                     <Route path='/home' element={<HomePage />} />
                     <Route path='/profile' element={<ProfilePage />} />

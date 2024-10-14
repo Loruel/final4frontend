@@ -1,10 +1,8 @@
 import axios from "axios";
 
-export const createIncident = async (/* { token, userData } */userData) => {
+export const createIncident = async (userData) => {
     try {
-        const res = await axios.post('http://localhost:3000/api/incidents/create', userData/* , {
-            headers: { Authorization: token }
-        } */)
+        const res = await axios.post('http://localhost:3000/api/incidents/create', userData)
 
         return res.data
     } catch (error) {
@@ -23,7 +21,7 @@ export const deletIncident = async (id) => {
     return res.data
 }
 
-export const updateIncident = async ({id, status}) => {
+export const updateIncident = async ({ id, status }) => {
     console.log('status de la api:', status)
     const res = await axios.patch(`http://localhost:3000/api/incidents/${id}`, {
         status
